@@ -1,16 +1,14 @@
-var level = document.querySelector('input[name = "levelButton"]:checked').value;
-/* createNum <-------------------------------------------------------------
-   Функция создания случайного числа. Возвращает массив с 4 символами */
-
-	// Math.floor - Округление. Возвращает наибольшее целое число, которое меньше или равно данному
-	// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Math/floor 
-
-	// Math.random - метод в нашем случае даёт случайное число между min и max
-	// https://javascript.ru/math.random
-
-	// indexOf - возвращает индекс первого вхождения указанного значения или -1
-	// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf
-var createNum = function(level){
+//быки и коровы
+var level = document.querySelector('input[name = "levelButton"]:checked').value; // Выбранный уровень сложности
+const maxNum4= 9876; //  Максимальное число, которое можно ввести на уровне сложности 4
+const maxNum5= 98765; // Максимальное число, которое можно ввести на уровне сложности 5
+/**
+ * Cоздаёт случайное число. Возвращает массив с 4 символами
+ *
+ * @param {number} level Уровень сложности, который выбрал пользователь
+ * @return {arr} number в степени n.
+ */
+function createNum(level){
 	let number = [];
 	while (number.length < level) {
 		let newNum = Math.floor(Math.random () * 10);
@@ -18,36 +16,24 @@ var createNum = function(level){
 			number.push(newNum);
 		}
 	}
-	document.querySelector('.tooltip').abbr = number; // для пасхалски
 	return number;
 };
-var target = createNum(level); // засунем в переменную результат функции. Это нужно отгадать
 
-/* changeLevel <----------------------------------------------
-   Не получается сделать функцию изменения уровня сложности */
-var changeLevel = function(newLevel) {
+var target = createNum(level); // Число, которое нужно отгадать
+
+function angeLevel(newLevel) {
 	alert('И че');
 	return newLevel;
 }
 
-/* guessing <-----------------------------------------------------------------------------------
-	Функция угадывания. Запускаем кнопкой. Переводит набранное в инпуте в формат массива, отправляет на проверку */
-
-	// CSS Селекторы: https://learn.javascript.ru/css-selectors
-
-	// querySelector - возвращает первый элемент, соответствующий CSS-селектору
-	// https://learn.javascript.ru/searching-elements-dom
-
-	// parseInt - принимает строку, возвращает целое число в соответствии с указанной системой счисления.
-	// https://javascript.ru/parseint
-
-	// substr - начинает собирать символы в строку с позиции start
-	// https://javascript.ru/String/substr
-var guessing = function() {
+/**
+ * Функция угадывания. Запускаем кнопкой. Переводит набранное в инпуте в формат массива, отправляет на проверку
+ */
+function guessing() {
 	let inputNum = document.querySelector('#player').value;
 	if (document.getElementById('guess').innerHTML == "Игра окончена") {
 		alert('Начните новую игру, с этой уже всё понятно');
-	} else if ((inputNum > 9876 && level == 4) || (inputNum > 98765 && level == 5) ) {
+	} else if ((inputNum > maxNum4 && level == 4) || (inputNum > maxNum5 && level == 5) ) {
 		alert('Вы ввели слишком много значений. ¯|_(ツ)_/¯\r Нужно всего '+level+' цифры');
 	}
 	else {
@@ -60,13 +46,11 @@ var guessing = function() {
 	}
 };
 
-/* check <-----------------------------------------------------------------------------------------------------------
-	Функция проверки введённого значения. Проверяет корректность, считает быков, коров, попытки и заканчивает игру */
-
-	// innerHTML - Свойство представляет собой содержимое элемента (элементы-потомки, комментарии, текст и т.д.)
-	// https://puzzleweb.ru/javascript/element_innerhtml.php
-
-var check = function (inputArrPar) {
+/**
+ * Функция проверки введённого значения. Проверяет корректность, считает быков, коров, попытки и заканчивает игру
+ * @param {arr} inputArrPar Введённое пользователем число в виде массива
+ */
+function check(inputArrPar) {
 	let bulls = 0;
 	let cows = 0;
 	let turns = parseInt(document.querySelector('.turns').innerHTML);
@@ -74,6 +58,11 @@ var check = function (inputArrPar) {
 	let ora = '';
 	findDuplicates(inputArrPar);
 
+	/**
+ 	* Ищет дубли в ведённых пользователем данных
+ 	* @param {arr} arr Введённое пользователем число в виде массива
+ 	* @return {arr} repeat Массив с дублирующимися значениями, которые ввёл пользователь
+ 	*/
     function findDuplicates(arr) {
         for(let i = 0;i < arr.length; i++) {
             if((arr.lastIndexOf(arr[i]) != i) &&
@@ -81,8 +70,6 @@ var check = function (inputArrPar) {
                  repeat.push(arr[i]);
             }
         }
-        console.log(arr);
-        console.log(repeat);
         return repeat;
     };
 
@@ -102,39 +89,48 @@ var check = function (inputArrPar) {
 				cows++;
 			}
 		}
-	// надо уменьшить количество ходов и записать уменьшенное число
-		turns--;
-		document.querySelector('.turns').innerHTML = turns;
 
-	// Вместо двух ифов с победой и поражением делаем один. Соответственно один вызов функции endGame
+		turns--;											// надо уменьшить количество ходов
+		document.querySelector('.turns').innerHTML = turns; // и записать уменьшенное число
+
 		if (turns == 0 || bulls == level) {
 			let result = 'опять проиграл (мда)';
 			if (bulls == level) {
 				result = 'кое-как победил (случайно)';
 			}
-			endGame(inputArrPar,  result);
+			endGame(result); // Выводит результаты игры
 		}
-	// Надо заисать попытку
-   	 writeTurn(inputArrPar, bulls, cows);
+
+   	 writeTurn(inputArrPar, bulls, cows); // Записывает попытку
    	}
 };
 
-/* writeTurn <-------------------------------------------------------------
-	Функция сохранит на экране введённое число, количество быков и коров */
-
-	// appendChild - Добавляет элемент в конец списка дочерних элементов родителя. Если уже существует, удаляется и вставляется.
-	// https://developer.mozilla.org/ru/docs/Web/API/Node/appendChild
-var writeTurn = function (inputArrPar, bulls, cows) {
+/**
+ 	* Функция сохранит на экране введённое число, количество быков и коров
+ 	* @param {arr} inputArrPar Введённое пользователем число в виде массива
+ 	* @param {number} bulls количество угаданных быков
+ 	* @param {number} cows количество угаданных коров
+ 	*/
+function writeTurn(inputArrPar, bulls, cows) {
 	let table = document.querySelector('.turnsList');
-	let newLine = document.createElement('p');
-	newLine.innerHTML = '<span class="guessed" style ="background: #f1c40f; font-size: 15pt">&nbsp;&nbsp;&nbsp;' + inputArrPar + '<span class="feedback"> быки:' + bulls + '; коровы: ' + cows + '&nbsp;&nbsp;&nbsp;</span>';
-	table.appendChild(newLine);
-	document.querySelector('#player').value = '';
+	//let newLine = document.createElement('p');
+	//newLine.innerHTML = '<span class="guessed" style ="background: #f1c40f; font-size: 15pt">&nbsp;&nbsp;&nbsp;' + inputArrPar + '<span class="feedback"> быки:' + bulls + '; коровы: ' + cows + '&nbsp;&nbsp;&nbsp;</span>';
+	//table.appendChild(newLine);
+
+	var pFather = document.querySelector('.turnRow');
+	var pNew = pFather.cloneNode(true);
+	pNew.querySelector('.turnRow').innerHTML = '<span class="guessed" style ="background: #f1c40f; font-size: 15pt">&nbsp;&nbsp;&nbsp;' + inputArrPar + '<span class="feedback"> быки:' + bulls + '; коровы: ' + cows + '&nbsp;&nbsp;&nbsp;</span>';
+	table.appendChild(pNew);
+
+
+	document.querySelector('#player').value = ''; // Очищаем строку ввода
 };
 
-/* endGame <------------------------------------
-	Функция сообщает игроку насколько он плох */
-var endGame = function (inputArrPar,  result) {
+/**
+ 	* Функция сообщает игроку насколько он плох
+ 	* @param {string} result сообщение для пользователя о победе/поражении
+ 	*/
+function endGame(result) {
 	document.querySelector('.number').innerHTML = target;
 	alert('Ты ' + result + '\rЗагаданное число: ' + target);
 	document.getElementById('guess').innerHTML = "Игра окончена";
