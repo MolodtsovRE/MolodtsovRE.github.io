@@ -27,9 +27,7 @@ body {
   .form label {
     margin-left: 20px;
     font-weight: bold; }
-  .form #guess {
-    display: block;
-    margin-top: 10px; }
+  
 
 .turnsList {
   background-image: url("./gazon.jpg");
@@ -37,6 +35,10 @@ body {
   text-align: center;
   min-height: 380px;
   min-width: 40%}
+
+.feedback {
+  background: #f1c40f;
+  font-size: 15pt;} 
 
 .app, .turnsList {
   vertical-align: top; /*Выравнивание верхнего края элемента по верху самого высокого элемента строки. */

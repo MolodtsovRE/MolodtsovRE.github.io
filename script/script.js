@@ -112,16 +112,17 @@ function check(inputArrPar) {
  	* @param {number} cows количество угаданных коров
  	*/
 function writeTurn(inputArrPar, bulls, cows) {
-	let table = document.querySelector('.turnsList');
+	// Так можно СОЗДАВАТЬ новые элементы
+	//let table = document.querySelector('.turnsList');
 	//let newLine = document.createElement('p');
 	//newLine.innerHTML = '<span class="guessed" style ="background: #f1c40f; font-size: 15pt">&nbsp;&nbsp;&nbsp;' + inputArrPar + '<span class="feedback"> быки:' + bulls + '; коровы: ' + cows + '&nbsp;&nbsp;&nbsp;</span>';
 	//table.appendChild(newLine);
 
-	var pFather = document.querySelector('.turnRow');
-	var pNew = pFather.cloneNode(true);
-	pNew.querySelector('.turnRow').innerHTML = '<span class="guessed" style ="background: #f1c40f; font-size: 15pt">&nbsp;&nbsp;&nbsp;' + inputArrPar + '<span class="feedback"> быки:' + bulls + '; коровы: ' + cows + '&nbsp;&nbsp;&nbsp;</span>';
-	table.appendChild(pNew);
-
+	// Так можно КОПИРОВАТЬ новые элементы
+	var div = document.querySelector('.turnsList');
+	var p = document.getElementsByClassName('turnRow')[0].cloneNode(true);
+	p.getElementsByClassName('feedback')[0].innerText = 'В числе '+ inputArrPar + ' быков: ' + bulls + ' коров: ' + cows + ' ';
+	div.appendChild(p);
 
 	document.querySelector('#player').value = ''; // Очищаем строку ввода
 };
