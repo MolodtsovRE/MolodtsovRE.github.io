@@ -1,0 +1,170 @@
+* {
+    margin: 0; /*пространство от границы текущего элемента до внутренней границы его родительского элемента*/
+    padding: 0; /*расстояние от внутреннего края рамки элемента до воображаемого прямоугольника, ограничивающего его содержимое*/
+}
+ 
+html {
+    height: 100%;
+}
+ 
+header, main, aside, footer {
+    display: block; /*Элементы показываются как блочный. */
+}
+ 
+body {
+    height: 100%;
+    width: 100%;
+    background: #fefefe;
+}
+ 
+.maxw {
+    margin: 0 auto;
+    min-width: 240px;
+    max-width: 1920px;
+}
+ 
+header {
+    min-width: 240px;
+    width: 100%;
+    height: 220px;
+    background: #74C9FF;
+}
+ 
+#wrapper {
+    position: relative;
+    margin: 0 auto;
+    height: auto !important;
+    height: 100%;
+    /*min-height: 100%;  -  Нужно для прижатия футера к низу*/
+    padding: 5px 0;
+}
+ 
+.section {
+    width: 100%;
+    padding: 0 0 220px;
+    position: relative;
+}
+ 
+.section:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+ 
+.mainwrap {
+    width: 100%;
+    float: left;
+    overflow: hidden;
+}
+ 
+main {
+    padding: 0 240px 0 240px;
+    min-height: 350px;
+    margin: 0;
+}
+ 
+article {
+    padding: 0 5px;
+    margin: 0 5px;
+    background: #EAF2F5;
+    min-height: 350px;
+}
+ 
+#s_left {
+    float: left;
+    width: 240px;
+    margin-left: -100%;
+    left: 0;
+    position: relative;
+    background: #E88139;
+    min-height: 350px;
+}
+ 
+#s_right {
+    float: left;
+    width: 240px;
+    margin-left: -240px;
+    right: 0;
+    position: relative;
+    background: #E86A3B;
+    min-height: 350px;
+}
+ 
+footer {
+    margin: -220px auto 0;
+    width: 100%;
+    min-width: 240px;
+    height: 220px;
+    background: #AFBFC6;
+    position: relative;
+}
+ 
+/* Для отображения на устройствах меньше 980px*/       
+        @media screen and (min-width:240px) and (max-width:479px) {
+             
+                main {
+                        padding:10px;
+                    }
+                     
+                     #s_left {
+                        padding: 0;
+                        margin: 0 auto;
+                        float: none;
+                        clear: both;
+                        left: 0;
+                    }
+                                
+                    #s_right {
+                        padding: 0;
+                        margin: 0 auto;
+                        float: none;
+                        clear: both;
+                        right: 0;
+                    } 
+        }
+         
+        @media screen and (min-width:480px) and (max-width:799px) {
+             
+                main {
+                        padding:10px;
+                    }
+                     
+                     #s_left {
+                        padding: 0;
+                        margin: 0 auto;
+                        float: none;
+                        clear: both;
+                        left: 0;
+                    }
+                                
+                    #s_right {
+                        padding: 0;
+                        margin: 0 auto;
+                        float: none;
+                        clear: both;
+                        right: 0;
+                    } 
+        }
+         
+        @media screen and (min-width:800px) and (max-width:979px) {
+         
+                main {
+                        padding:10px;
+                    }
+                     
+                     #s_left {
+                        padding: 0;
+                        margin: 0 auto;
+                        float: none;
+                        clear: both;
+                        left: 0;
+                    }
+                                
+                    #s_right {
+                        padding: 0;
+                        margin: 0 auto;
+                        float: none;
+                        clear: both;
+                        right: 0;
+                    } 
+        }
