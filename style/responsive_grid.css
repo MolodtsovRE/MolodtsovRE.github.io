@@ -1,11 +1,76 @@
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+
 body {
   margin-top: 3rem;
+}
+
+/*.l-guest-article {*/
+  .grid-item {
+    @media (min-width: 700px) {
+      padding-left: 12px;
+      padding-right: 12px;
+      float: left; 
+    }
+  }
+  .l-guest {
+    @media (min-width: 700px) {
+      width: 33.33333%;/*percentage(4/12);*/
+      float: left;
+    }
+
+    @media (min-width: 1200px) {
+      width: 16.666%;/*percentage(2/12);*/
+    }
+  }
+  .l-main {
+    margin-top: 20px;
+    @media (min-width: 700px) {
+      width: 66.666%;/*percentage(8/12);*/
+      margin-top: 0;
+      float: left;
+    }
+    @media (min-width: 1200px) {
+      width: 58.333%;/*percentage(7/12);*/
+    }
+  }
+  .l-sidebar {
+    margin-top: 20px;
+    @media (min-width: 700px) {
+      width: 66.666%;/*percentage(8/12);*/
+      float: right;
+    }
+    @media (min-width: 1200px) {
+      width: 25%/*percentage(3/12);*/
+      margin-top: 0;
+    }
+  }
+/*}*/
+
+.l-guest-article:after {
+  display: table;
+  clear: both;
+  content:'';  
+}
+
+.grid-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  text-align: center;
+  background: rgba(255, 0, 0, 0.25);
 }
 
 .l-wrap {
@@ -14,45 +79,11 @@ body {
   margin-left: auto;
 }
 
-.grid-item {
-  padding-left: 10px;
-  padding-right: 10px;
-  float: left;
-}
-/*.l-guest-article {*/
-  .l-guest {
-    width: 16.666%;
-  }
-  .l-main {
-    width: 58.333%;
-  }
-
-  .l-sidebar {
-    width: 25%;
-  }
-/* } */
-
-.grid-inner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  text-align: center;
-  background: rgba( 255,0,0,0.3);
-}
-
 .column {
   width: calc((100% - 24px * 12) / 12);
   margin-right: 12px;
   margin-left: 12px;
-  background: rgba( 0,0,255,0.3);
+  background: rgba(0, 0, 255, 0.25); /*(blue,0.25);*/
   float:left;
   height: 80px;
 }
-.fixed-gutter-grid::after {
-  display: table;
-  clear: both;
-  content: '';
-}
-
-

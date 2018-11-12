@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,16 +12,15 @@ body {
 
 .header {
   text-align: center;
-  font-size: 7em;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  max-width: 1000px;}
+  font-size: 7em; 
+  display: flex; 
+  justify-content: center;  
 
-.container {
-  margin: 0;
-  width: 100vw;}
+  /*Для масштабирования картинки*/
+  width:auto;
+  max-width:100%;
+  height:auto;
+}
 
 .hello {
   text-align: center;
@@ -46,7 +51,9 @@ body {
   width: 49%;
   margin: 0 auto;
   overflow: auto; 
-  max-width: 500px; }
+  max-width: 570px; 
+  margin-right: auto;
+  margin-left: auto;}
 
 #Levels {
 margin: 10px 0px 1px 20px;}
@@ -82,3 +89,18 @@ a:after {
   border-color: #f1c40f;
   width: calc(100% - 10px);
   height: calc(100% + 10px);}
+
+.column {
+  width: calc((100% - 24px * 12) / 12);
+  margin-right: 12px;
+  margin-left: 12px;
+  background: rgba(0, 0, 255, 0.25); /*(blue,0.25);*/
+  float:left;
+  height: 80px;
+}
+
+.l-wrap {
+  max-width: 1140px;
+  margin-right: auto;
+  margin-left: auto;
+}

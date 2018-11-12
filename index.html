@@ -6,51 +6,63 @@
 	<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-	<div class="container">
-		<div class="topLine"> Правила </div>
-		<div class="header">							
-			<img src="./img/playBT2.png">					
-		</div>
-
-		<div class="app">
-			<div class="form">
-				<label for="Levels"> 1) Выберите уровень сложности </label>
-				<div id = "Levels">				
-						<input onclick="changeLevel(this);" name="levelButton" id="level4" type="radio" class="radio" value=4 checked>
-						<label for="level4">4 символа</label>
-						<br>
-                    	<input onclick="changeLevel(this);" name="levelButton" id="level5" type="radio" class="radio" value=5>
-                    	<label for="level5">5 символов</label>		
-                </div>		
-				<br>
-				<div>
-					<label for="player"> 2) Введите число: </label>
-					<input type="number" id="player">
-				</div>
-				<br>
-				<label for="bttCon">3) Проверьте свою догадку</label>
-				<div class="button-container" id ="bttCon">
-					<a href="#" id="guess" onClick="guessing(); return false;">Проверить число</a>				
-					<a href="#" onClick="window.location.reload()">Новая игра</a>
-				</div>
+	<div class="topLine"> Правила </div>
+	<div class="header"> <img src="./img/playBT2.png"> </div>
+	<div class="l-wrap">
+	<div class="app">
+		<div class="form">
+			<label for="Levels"> 1) Выберите уровень сложности </label>
+			<div id = "Levels">				
+					<input onclick="changeLevel(this);" name="levelButton" id="level4" type="radio" class="radio" value=4 checked>
+					<label for="level4">4 символа</label>
+					<br>
+                    <input onclick="changeLevel(this);" name="levelButton" id="level5" type="radio" class="radio" value=5>
+                    <label for="level5">5 символов</label>		
+            </div>		
+			<br>
+			<div>
+				<label for="player"> 2) Введите число: </label>
+				<input type="number" id="player" onkeydown="event.ctrlKey?maxLength=0:maxLength=20" onkeyup="maxLength=0">
 			</div>
-
-			<div class="goal">
-				<p class="hello">
-					Загаданное число: <span class="number"> ? ? ? ?</span><br>
-					Осталось <span class="turns">10</span> ходов
-				</p>
+			<br>
+			<label for="bttCon">3) Проверьте свою догадку</label>
+			<div class="button-container" id ="bttCon">
+				<a href="#" id="guess" onClick="guessing(); return false;">Проверить число</a>				
+				<a href="#" onClick="window.location.reload()">Новая игра</a>
 			</div>
 		</div>
 
-		<div class="turnsList">
-			<p class="turnRow">
-				<span class="feedback">					
-				</span>
+		<div class="goal">
+			<p class="hello">
+				Загаданное число: <span class="number"> ? ? ? ?</span><br>
+				Осталось <span class="turns">10</span> ходов
 			</p>
 		</div>
+	</div>
 
-	</div>	
+	<div class="turnsList">
+		<p class="turnRow">
+			<span class="feedback">					
+			</span>
+		</p>
+	</div>
+
+	
+            <!--<div class="fixed-gutter-grid">-->
+        <div class="column">1</div>
+        <div class="column">2</div>
+        <div class="column">3</div>
+        <div class="column">4</div>
+        <div class="column">5</div>
+        <div class="column">6</div>
+        <div class="column">7</div>
+        <div class="column">8</div>
+        <div class="column">9</div>
+        <div class="column">10</div>
+        <div class="column">11</div>
+        <div class="column">12</div>
+            <!--</div>-->
+    </div>
 	<script src="script/script.js"></script>
 </body>
 </html>
