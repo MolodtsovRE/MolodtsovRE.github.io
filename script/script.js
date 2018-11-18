@@ -1,4 +1,29 @@
 //быки и коровы
+
+function startGame() {
+	var gameDiv = document.getElementsByClassName("game")[0];
+	gameDiv.style.display = "block";
+
+	var menuDiv = document.getElementsByClassName("menu")[0];
+	menuDiv.style.display = "none";
+};
+
+function backToMenu() {
+	var gameDiv = document.getElementsByClassName("game")[0];
+	gameDiv.style.display = "none";
+
+	var menuDiv = document.getElementsByClassName("menu")[0];
+	menuDiv.style.display = "block";
+};
+
+
+
+
+
+
+
+
+
 var level = document.querySelector('input[name = "levelButton"]:checked').value; // Выбранный уровень сложности
 const maxNum4= 9876; //  Максимальное число, которое можно ввести на уровне сложности 4
 const maxNum5= 98765; // Максимальное число, которое можно ввести на уровне сложности 5

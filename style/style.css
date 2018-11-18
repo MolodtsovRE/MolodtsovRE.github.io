@@ -99,8 +99,13 @@ a:after {
   height: 80px;
 }
 
-.l-wrap {
+.game, .menu {
   max-width: 1140px;
   margin-right: auto;
   margin-left: auto;
 }
+
+.game {
+  display: none;
+}
+
