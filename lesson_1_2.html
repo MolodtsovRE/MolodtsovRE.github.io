@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lesson 1 & 2</title>
+	<link rel="stylesheet" href="style/for_less_1_2.css">
+</head>
+<body>
+<section class="product-item">
+  <div class="product-gallery">
+    <img src="./img/img_for_less_1_2/1.jpg" alt="Обоже оно меняется само" id="slider">
+  </div>
+
+  <div class="product-data">
+    <p class="product-firm">Тут текст</p>
+    <h2 class="product-name">можно вводить</h2>
+    <p class="product-price">а</p>
+    <p class="product-colors">можно и не</p>
+    <p class="product-size">вводить</p>
+    <button class="buy-btn">Задуматься</button>
+
+    <div class="product-info">
+      <p class="product-description">
+        Идёт медведь по лесу, видит машина горит. Сел в неё и
+
+      	<div id="List" class="wrapper-dropdown" onclick="OpenList()">что же
+  			<ul class="dropdown">
+   			<li><a href="#">уехал</a></li>
+   			<li><a href="#">СГОРЕЛ АХАХАХАХАХ</a></li>
+   			<li><a href="#" >брат за брата</a></li>
+ 			</ul>
+		</div>
+
+        Второе задание:
+        'use strict';
+		function handleClick() {
+  		openMail();
+		}
+		const button = window.document.getElementById('open');
+		button.onclick = handleClick();
+		<br>	
+		onclick = "openMail()"
+      </p>
+    </div>
+  </div>
+</section>
+	
+<article class="article-block">
+  <div class="article-gallery">
+    <img id="currentPhoto" src="./img/img_for_less_1_2/1.jpg" alt="Обоже оно меняется если нажимать кнопки">
+    <button class="button3" id="prevPhoto" onclick = "back()">Назад</button>
+    <button class="button3" id="nextPhoto" onclick = "go()">Вперед</button>
+  </div>
+</article>
+
+<script src="script/for_lesson_1_2.js"></script>
+</body>
+</html>
