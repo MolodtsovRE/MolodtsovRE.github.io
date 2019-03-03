@@ -4,9 +4,6 @@
 const img = document.getElementById('slider');
 var step = 1; // Номер фото слайдера
 
-const gallery = document.getElementById('currentPhoto');
-var photoNum = 1; // Номер фото в галерее
-
 function showSrc() { 
 	if (step == 11) {step = 1}
 
@@ -20,6 +17,9 @@ setInterval(showSrc, 2500);
 /*
 3 задание. Переключение вперёд/назад
 */
+const gallery = document.getElementById('currentPhoto');
+var photoNum = 1; // Номер фото в галерее
+
 function go() {
 	photoNum++;
 	if (photoNum == 11) {photoNum = 1}
