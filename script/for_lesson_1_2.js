@@ -43,12 +43,13 @@ function back(){
 const list = document.getElementById('List');
 function OpenList(){
 	list.classList.toggle('active');
-	/*
-	if (list.classList.contains('active')) {
-		list.classList.remove('active');
-	} 
-	else {
-		list.classList.add('active');
-	}
-	*/
 }
+
+/*
+5 задание. Барабанная установка
+*/
+const player = document.getElementById('player');
+function Play() {	
+    player.play();
+}
+

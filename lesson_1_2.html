@@ -12,11 +12,11 @@
   </div>
 
   <div class="product-data">
-    <p class="product-firm">Тут текст</p>
-    <h2 class="product-name">можно вводить</h2>
+    <p class="product-firm">Тут можно </p>
+    <h2 class="product-name">читать текст</h2>
     <p class="product-price">а</p>
     <p class="product-colors">можно и не</p>
-    <p class="product-size">вводить</p>
+    <p class="product-size">читать</p>
     <button class="buy-btn">Задуматься</button>
 
     <div class="product-info">
@@ -25,11 +25,26 @@
 
       	<div id="List" class="wrapper-dropdown" onclick="OpenList()">что же
   			<ul class="dropdown">
-   			<li><a href="#">уехал</a></li>
-   			<li><a href="#">СГОРЕЛ АХАХАХАХАХ</a></li>
+   			<li><a href="#" >уехал</a></li>
+   			<li><a href="#" >СГОРЕЛ АХАХАХАХАХ</a></li>
    			<li><a href="#" >брат за брата</a></li>
+   			<li onclick="Play()" class="drum-kit__drum key-ride">
+				<span class="drum-kit__drum__type">Ride</span>
+   				<audio id="player" src="https://netology-code.github.io/hj-homeworks/html-element-collection/drum-machine/wav/ride.wav">
+   					Ваш браузер не умеет воспроизводить музыку
+   				</audio>
+   			</li>
  			</ul>
 		</div>
+
+		<li class="drum-kit__drum key-ride">
+				<span  onclick="Play()" class="drum-kit__drum__type">Ride</span>
+   				<audio id="player" src="https://netology-code.github.io/hj-homeworks/html-element-collection/drum-machine/wav/ride.wav">
+   					Ваш браузер не умеет воспроизводить музыку
+   				</audio>
+   		</li>
+
+   		
 
         Второе задание:
         'use strict';
